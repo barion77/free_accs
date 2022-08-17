@@ -13,7 +13,7 @@ require '../app/classes/autoload.php';
 require '../routes/web.php';
 
 try {
-
+    
 } catch (RouteException $e) {
     if (Config::getField('APP_LOG')) {
         logging('Class or method does not exists ' . $controller . ' method: ' . $action);
@@ -22,4 +22,3 @@ try {
 }
 
 Route::check();
-

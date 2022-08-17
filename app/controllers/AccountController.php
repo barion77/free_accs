@@ -11,4 +11,5 @@ class AccountController extends Controller
         $this->view->layout = 'layouts.default';
         $this->view->render('account.index', 'Логи');
     }
+
 }
