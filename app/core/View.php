@@ -30,7 +30,7 @@ class View
                 ob_start();
                 require $view;
                 unset($view);
-                $view_content = ob_get_clean();
+                $view = ob_get_clean();
             }
 
             require $this->layout;

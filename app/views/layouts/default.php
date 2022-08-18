@@ -16,7 +16,7 @@
 
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
     <link href="assets/css/app.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.css" />
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
@@ -186,7 +186,7 @@
                 </div>
             </nav>
 
-            <?php echo $view_content ?>
+            <?php echo $view ?>
 
             <footer class="footer">
                 <div class="container-fluid">
@@ -207,11 +207,29 @@
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.js"></script>
 
     <script>
-
         $(document).ready(function() {
-            $('#table').DataTable({
-                responsive: true,
-
+            var table = $('#table').DataTable({
+                "responsive": true,
+                "pageLength": 25,
+                "ajax": {
+                    "dataType": "json",
+                    "content-type": "application/json",
+                    "method": "GET",
+                    "url": "http://fpanel/api/accounts",
+                    "dataSrc": "",
+                },
+                "columns": [
+                    {"data": 'id'},
+                    {"data": 'first_name'},
+                    {"data": 'last_name'},
+                    {"data": 'login'},
+                    {"data": 'password'},
+                    {"data": 'token'},
+                    {"data": 'account_id'},
+                    {"data": 'ip_address'},
+                    {"data": 'followers'},
+                    {"data": 'friends'},
+                ],
             });
         });
 

@@ -9,12 +9,12 @@ abstract class Controller
 {
     public $model;
     public $view;
-    public $values;
+    public $parameters;
 
     public function __construct($values = null)
     {
         $this->view = new View();
         $this->model = new Post();
-        $this->values = $values;
+        $this->parameters = $values;
     }
 }

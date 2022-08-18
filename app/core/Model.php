@@ -6,11 +6,18 @@ use \PDO;
 
 class Model 
 {
-    protected $db;
+    private $db;
 
     public function __construct()
     {
        $this->db = Database::getInstance();
+    }
+
+    public function query($sql, $params = [])
+    {
+        $result = $this->db->query($sql, $params);
+
+        return $result;
     }
 
     public function row($sql, $params = [])
@@ -25,5 +32,10 @@ class Model
         $result = $this->db->query($sql, $params);
 
         return $result->fetchColumn();
+    }
+
+    public function lastInsertId()
+    {
+        return $this->db->lastInsertId();
     }
 }

@@ -8,6 +8,8 @@ class Database
 {
     use Singleton;
 
+    private $connection;
+
     public function __construct()
     {
         $config = Config::getSection('database');
@@ -30,5 +32,10 @@ class Database
 
         $stmt->execute();
         return $stmt;
+    }
+
+    public function lastInsertId()
+    {
+        return $this->connection->lastInsertId();
     }
 }

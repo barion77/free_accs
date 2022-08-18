@@ -12,4 +12,8 @@ class AccountController extends Controller
         $this->view->render('account.index', 'Логи');
     }
 
+    public function post()
+    {
+        return 'post';
+    }
 }

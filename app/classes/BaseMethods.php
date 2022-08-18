@@ -21,5 +21,6 @@ function logging($message)
 
 function url($uri)
 {
-    return Config::getField('APP_URL') . trim($uri, '/');
+    $app_url = Config::getField('APP_URL');
+    return trim($app_url, '/') . $uri;
 }
